@@ -1,15 +1,18 @@
 const TelegramBot = require("node-telegram-bot-api");
 const { Configuration, OpenAIApi } = require("openai");
+const completion = require("./models/completion");
+("./models/completion");
 require("dotenv").config();
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const OPEN_AI_KEY = process.env.OPEN_AI_KEY;
 const OPEN_AI_ORGANIZATION_ID = process.env.OPEN_AI_ORGANIZATION_ID;
 const OPEN_AI_CONFIGURATION = new Configuration({
-    organization: OPEN_AI_ORGANIZATION_ID,
-    apiKey: OPEN_AI_KEY
+	organization: OPEN_AI_ORGANIZATION_ID,
+	apiKey: OPEN_AI_KEY,
 });
 const openai = new OpenAIApi(OPEN_AI_CONFIGURATION);
+const COMPLETIONS_API = "https://api.openai.com/v1/completions";
 
 const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
 	polling: true,
@@ -38,10 +41,24 @@ BOT.onText(/\/echo (.*)/, (message) => {
 	const chatId = message.chat.id;
 	BOT.sendMessage(
 		chatId,
-		"Echoing " + message.text.replace("\/echo ", "") + " back to you :D"
+		"Echoing " + message.text.replace("/echo ", "") + " back to you :D"
 	);
 });
 
+BOT.onText(/\/complete (.*)/, async (message) => {
+	const chatId = message.chat.id;
+	const prompt = message.text.replace("/ai", "").trim();
+
+	const response = await openai.createCompletion(
+		completion.CompletionModel({ prompt: prompt }),
+	);
+
+	if (response) {
+		BOT.sendMessage(chatId, response.data.choices[0].text);
+	}
+});
+
+// Sample
 // BOT.on("message", (message) => {
 //     const chatId = message.chat.id;
 //     switch (message.text) {
