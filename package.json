@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"dotenv": "^16.0.3",
-		"node-telegram-bot-api": "^0.59.0"
+		"node-telegram-bot-api": "^0.59.0",
+		"openai": "^3.0.0"
 	},
 	"scripts": {
 		"start": "nodemon src/index.js"
