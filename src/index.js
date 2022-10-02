@@ -21,6 +21,25 @@ const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
 
 BOT.on("polling_error", console.log);
 
+BOT.onText(/\/start/, (message) => {
+	const chatId = message.chat.id;
+
+	BOT.sendMessage(
+		chatId,
+		`
+	<b>Welcome to the Misaka Network.</b>
+
+	This Telegram Bot has an Open AI functionality.
+
+	To get started, please choose type one of the following commands:
+	/start - show this message
+	/complete &lt;text&gt; - use Open AI to complete a sentence or write something out
+	/datetime - get the current date and time in Singapore
+	`,
+		{ parse_mode: "HTML" }
+	);
+});
+
 BOT.onText(/\/datetime/, (message) => {
 	const chatId = message.chat.id;
 	const date = new Date().toLocaleString("en-SG", {
@@ -51,7 +70,7 @@ BOT.onText(/\/complete (.*)/, async (message) => {
 	const prompt = RemoveCommand(message.text);
 
 	const response = await openai.createCompletion(
-		completion.CompletionModel({ prompt: prompt }),
+		completion.CompletionModel({ prompt: prompt })
 	);
 
 	if (response) {
