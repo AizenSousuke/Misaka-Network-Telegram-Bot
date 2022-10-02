@@ -1,6 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 const { Configuration, OpenAIApi } = require("openai");
 const completion = require("./models/completion");
+const { RemoveCommand } = require("./common/messageHelper");
 ("./models/completion");
 require("dotenv").config();
 
@@ -41,13 +42,13 @@ BOT.onText(/\/echo (.*)/, (message) => {
 	const chatId = message.chat.id;
 	BOT.sendMessage(
 		chatId,
-		"Echoing " + message.text.replace("/echo ", "") + " back to you :D"
+		"Echoing " + RemoveCommand(message.text) + " back to you :D"
 	);
 });
 
 BOT.onText(/\/complete (.*)/, async (message) => {
 	const chatId = message.chat.id;
-	const prompt = message.text.replace("/ai", "").trim();
+	const prompt = RemoveCommand(message.text);
 
 	const response = await openai.createCompletion(
 		completion.CompletionModel({ prompt: prompt }),
