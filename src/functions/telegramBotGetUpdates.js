@@ -4,6 +4,7 @@ const BOT = TELEGRAM_BOT();
 module.exports.handler = async (event, context) => {
 	try {
 		// console.log(event.body);
+		BOT.sendMessage(event.body);
 		return {
 			statusCode: 200,
 			body: "Success",
