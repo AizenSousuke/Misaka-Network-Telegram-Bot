@@ -20,7 +20,7 @@ export const TELEGRAM_BOT = () => {
 		"https://api.telegram.org/bot" +
 			TELEGRAM_BOT_TOKEN +
 			"/setWebhook?url=" +
-			process.env.WEBBOOK_URL
+			process.env.WEBHOOK_URL
 	);
 
 	BOT.onText(/\/start/, (message) => {
