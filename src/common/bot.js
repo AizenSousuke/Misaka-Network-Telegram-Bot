@@ -1,8 +1,10 @@
 import { OPEN_AI } from "./openai";
+import * as TelegramBot from "node-telegram-bot-api";
+import * as dotenv from "dotenv";
+import completion from "../models/completion";
 
 export const TELEGRAM_BOT = () => {
-	const TelegramBot = require("node-telegram-bot-api");
-	require("dotenv").config();
+	dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
@@ -80,3 +82,5 @@ export const TELEGRAM_BOT = () => {
 
 	return BOT;
 };
+
+export default TELEGRAM_BOT;

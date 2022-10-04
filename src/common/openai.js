@@ -1,9 +1,10 @@
+import { Configuration, OpenAIApi } from "openai";
+import { CompletionModel } from "../models/completion";
+import { RemoveCommand } from "../common/messageHelper";
+import * as dotenv from "dotenv";
+
 export const OPEN_AI = () => {
-	const { Configuration, OpenAIApi } = require("openai");
-	const completion = require("./models/completion");
-	const { RemoveCommand } = require("./common/messageHelper");
-	("./models/completion");
-	require("dotenv").config();
+	dotenv.config();
 
 	const OPEN_AI_KEY = process.env.OPEN_AI_KEY;
 	const OPEN_AI_ORGANIZATION_ID = process.env.OPEN_AI_ORGANIZATION_ID;
