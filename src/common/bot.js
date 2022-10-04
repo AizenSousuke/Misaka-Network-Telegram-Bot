@@ -2,6 +2,7 @@ import OPEN_AI from "./openai";
 import TelegramBot from "node-telegram-bot-api";
 import * as dotenv from "dotenv";
 import completion from "../models/completion";
+import { RemoveCommand } from "./messageHelper";
 
 export const TELEGRAM_BOT = () => {
 	dotenv.config();
