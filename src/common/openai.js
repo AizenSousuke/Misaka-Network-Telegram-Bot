@@ -17,3 +17,5 @@ export const OPEN_AI = () => {
 
 	return openai;
 };
+
+export default OPEN_AI;
