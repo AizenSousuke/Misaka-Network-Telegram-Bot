@@ -1,14 +1,16 @@
 import TELEGRAM_BOT from "../common/bot";
 const BOT = TELEGRAM_BOT();
 
-module.exports.handler = async (event, context) => {
+module.exports.handler = async (event, context, callback) => {
 	try {
 		// console.log(event.body);
-		BOT.sendMessage(event.body);
-		return {
+		console.log("Running function");
+		const json = JSON.parse(event.body);
+		BOT.handleUpdate(json);
+		return callback(null, {
 			statusCode: 200,
 			body: "Success",
-		};
+		});
 	} catch (error) {
 		console.error(error);
 		return {
