@@ -1,5 +1,9 @@
+const { default: TELEGRAM_BOT, SETUP_TELEGRAM_BOT } = require("../common/bot");
+
 module.exports.handler = async (event, context, callback) => {
 	try {
+		const BOT = TELEGRAM_BOT();
+		SETUP_TELEGRAM_BOT(BOT);
 		console.log(
 			"Running function at " +
 				new Date().toLocaleString("en-SG", {
