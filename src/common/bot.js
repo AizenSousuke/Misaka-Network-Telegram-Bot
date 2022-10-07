@@ -6,7 +6,7 @@ import { RemoveCommand } from "./messageHelper";
 import { Telegraf } from "telegraf";
 
 export const TELEGRAM_BOT = () => {
-	dotenv.config();
+	// dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
