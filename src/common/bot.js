@@ -28,20 +28,32 @@ export const TELEGRAM_BOT = () => {
 	// process.once('SIGINT', () => BOT.stop('SIGINT'));
 	// process.once('SIGTERM', () => BOT.stop('SIGTERM'));
 
-	// console.log("Finished running bot");
+	console.log("Finished running bot");
+
+	return BOT;
+};
+
+export const SETUP_TELEGRAM_BOT = (BOT) => {
 
 	// Normal bot
 	const openai = OPEN_AI();
 
 	BOT.on("polling_error", console.log);
 
+	// Remove old webhook
+	BOT.setWebHook(
+		"https://api.telegram.org/bot" +
+			TELEGRAM_BOT_TOKEN +
+			"/setWebhook"
+	);
+
 	// Set webhook
-	// BOT.setWebHook(
-	// 	"https://api.telegram.org/bot" +
-	// 		TELEGRAM_BOT_TOKEN +
-	// 		"/setWebhook?url=" +
-	// 		process.env.WEBHOOK_URL
-	// );
+	BOT.setWebHook(
+		"https://api.telegram.org/bot" +
+			TELEGRAM_BOT_TOKEN +
+			"/setWebhook?url=" +
+			process.env.WEBHOOK_URL
+	);
 
 	BOT.onText(/\/start/, (message) => {
 		const chatId = message.chat.id;
@@ -99,8 +111,6 @@ export const TELEGRAM_BOT = () => {
 			BOT.sendMessage(chatId, response.data.choices[0].text);
 		}
 	});
-
-	return BOT;
-};
+}
 
 export default TELEGRAM_BOT;
