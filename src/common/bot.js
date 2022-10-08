@@ -34,6 +34,8 @@ export const TELEGRAM_BOT = () => {
 };
 
 export const SETUP_TELEGRAM_BOT = (BOT) => {
+	
+	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
 	// Normal bot
 	const openai = OPEN_AI();
