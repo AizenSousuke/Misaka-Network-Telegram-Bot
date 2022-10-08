@@ -41,19 +41,19 @@ export const SETUP_TELEGRAM_BOT = (BOT) => {
 	BOT.on("polling_error", console.log);
 
 	// Remove old webhook
-	BOT.setWebHook(
-		"https://api.telegram.org/bot" +
-			TELEGRAM_BOT_TOKEN +
-			"/setWebhook"
-	);
+	// BOT.setWebHook(
+	// 	"https://api.telegram.org/bot" +
+	// 		TELEGRAM_BOT_TOKEN +
+	// 		"/setWebhook"
+	// );
 
-	// Set webhook
-	BOT.setWebHook(
-		"https://api.telegram.org/bot" +
-			TELEGRAM_BOT_TOKEN +
-			"/setWebhook?url=" +
-			process.env.WEBHOOK_URL
-	);
+	// // Set webhook
+	// BOT.setWebHook(
+	// 	"https://api.telegram.org/bot" +
+	// 		TELEGRAM_BOT_TOKEN +
+	// 		"/setWebhook?url=" +
+	// 		process.env.WEBHOOK_URL
+	// );
 
 	BOT.onText(/\/start/, (message) => {
 		const chatId = message.chat.id;
