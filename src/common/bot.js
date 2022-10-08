@@ -13,6 +13,7 @@ export const TELEGRAM_BOT = () => {
 		polling: true,
 	});
 
+
 	// Telegraf
 	// const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
 
@@ -33,7 +34,7 @@ export const TELEGRAM_BOT = () => {
 	return BOT;
 };
 
-export const SETUP_TELEGRAM_BOT = (BOT) => {
+export const SETUP_TELEGRAM_BOT = async (BOT) => {
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const openai = OPEN_AI();
@@ -111,6 +112,9 @@ export const SETUP_TELEGRAM_BOT = (BOT) => {
 			BOT.sendMessage(chatId, response.data.choices[0].text);
 		}
 	});
+
+	await BOT.close();
+	await BOT.closeWebHook();
 }
 
 export default TELEGRAM_BOT;
