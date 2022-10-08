@@ -10,7 +10,7 @@ export const TELEGRAM_BOT = () => {
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
-		polling: false,
+		polling: true,
 	});
 
 	// Telegraf
