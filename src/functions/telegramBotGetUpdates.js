@@ -14,6 +14,11 @@ module.exports.handler = async (event, context, callback) => {
 		const BOT = TELEGRAM_BOT();
 		await SETUP_TELEGRAM_BOT(BOT);
 
+		const data = JSON.parse(event.body);
+		BOT.sendMessage(data.message.chat.id, data.message.text);
+
+		BOT.close();
+		
 		return callback(null, {
 			statusCode: 200,
 			body: "Success",
