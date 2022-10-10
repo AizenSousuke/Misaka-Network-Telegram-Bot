@@ -9,10 +9,10 @@ export const TELEGRAM_BOT = () => {
 	// dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
-		polling: true,
-	});
-
+	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
+	// 	polling: true,
+	// });
+	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN);
 
 	// Telegraf
 	// const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
@@ -35,7 +35,6 @@ export const TELEGRAM_BOT = () => {
 };
 
 export const SETUP_TELEGRAM_BOT = async (BOT) => {
-
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const openai = OPEN_AI();
 
@@ -115,6 +114,6 @@ export const SETUP_TELEGRAM_BOT = async (BOT) => {
 
 	// await BOT.close();
 	// await BOT.closeWebHook();
-}
+};
 
 export default TELEGRAM_BOT;
