@@ -1,6 +1,6 @@
 const { default: TELEGRAM_BOT, SETUP_TELEGRAM_BOT } = require("../common/bot");
 
-module.exports.handler = async (event, context, callback) => {
+module.exports.handler = async (event, context) => {
 	try {
 		console.log(
 			"Running function at " +
@@ -17,12 +17,10 @@ module.exports.handler = async (event, context, callback) => {
 		const data = JSON.parse(event.body);
 		BOT.sendMessage(data.message.chat.id, data.message.text);
 
-		BOT.stopPolling();
-
-		return callback(null, {
+		return {
 			statusCode: 200,
 			body: "Success",
-		});
+		};
 	} catch (error) {
 		console.error(error);
 		return {
