@@ -9,13 +9,14 @@ module.exports.handler = async (event, context) => {
 					hour12: true,
 				})
 		);
-		console.log(JSON.stringify(event));
+		console.log(JSON.stringify(event.body));
 
 		const BOT = TELEGRAM_BOT();
-		await SETUP_TELEGRAM_BOT(BOT);
+		// await SETUP_TELEGRAM_BOT(BOT);
 
 		const data = JSON.parse(event.body);
-		BOT.sendMessage(data.message.chat.id, data.message.text);
+		console.log(data);
+		// BOT.sendMessage(data.message.chat.id, data.message.text);
 
 		return {
 			statusCode: 200,

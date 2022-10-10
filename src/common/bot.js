@@ -9,18 +9,18 @@ export const TELEGRAM_BOT = () => {
 	// dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
-		polling: true,
-	});
+	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
+	// 	polling: true,
+	// });
 	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
 	// 	webHook: true,
 	// });
 
 	// Telegraf
-	// const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
+	const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
 
-	// BOT.start((ctx) => ctx.reply("Hello world"));
-	// BOT.hears("hi", (ctx) => ctx.reply("Hey there"));
+	BOT.start((ctx) => ctx.reply("Hello world"));
+	BOT.hears("hi", (ctx) => ctx.reply("Hey there"));
 	// BOT.launch({
 	// 	webhook: {
 	// 		domain: "misakanetwork-telegram-api.netlify.app"
@@ -40,7 +40,7 @@ export const SETUP_TELEGRAM_BOT = async (BOT) => {
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const openai = OPEN_AI();
 
-	BOT.on("polling_error", console.log);
+	// BOT.on("polling_error", console.log);
 
 	// Remove old webhook
 	// BOT.setWebHook(
