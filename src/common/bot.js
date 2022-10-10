@@ -12,7 +12,9 @@ export const TELEGRAM_BOT = () => {
 	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
 	// 	polling: true,
 	// });
-	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN);
+	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
+		webHook: true
+	});
 
 	// Telegraf
 	// const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
