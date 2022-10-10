@@ -113,8 +113,8 @@ export const SETUP_TELEGRAM_BOT = async (BOT) => {
 		}
 	});
 
-	await BOT.close();
-	await BOT.closeWebHook();
+	// await BOT.close();
+	// await BOT.closeWebHook();
 }
 
 export default TELEGRAM_BOT;
