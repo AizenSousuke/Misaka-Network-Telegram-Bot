@@ -21,6 +21,7 @@ export const TELEGRAM_BOT = () => {
 
 	BOT.start((ctx) => ctx.reply("Hello world"));
 	BOT.hears("hi", (ctx) => ctx.reply("Hey there"));
+	BOT.launch();
 	// BOT.launch({
 	// 	webhook: {
 	// 		domain: "misakanetwork-telegram-api.netlify.app"
