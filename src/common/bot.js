@@ -9,12 +9,14 @@ export const TELEGRAM_BOT = () => {
 	// dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
-		polling: true,
-	});
+	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
+	// 	polling: true,
+	// });
 	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
 	// 	webHook: true,
 	// });
+	const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN);
+	BOT.startPolling();
 
 	// Telegraf
 	// const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);

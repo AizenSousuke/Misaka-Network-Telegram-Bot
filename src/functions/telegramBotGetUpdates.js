@@ -17,8 +17,8 @@ module.exports.handler = async (event, context, callback) => {
 		const data = JSON.parse(event.body);
 		BOT.sendMessage(data.message.chat.id, data.message.text);
 
-		BOT.close();
-		
+		BOT.stopPolling();
+
 		return callback(null, {
 			statusCode: 200,
 			body: "Success",
