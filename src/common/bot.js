@@ -6,17 +6,15 @@ import { RemoveCommand } from "./messageHelper";
 import { Telegraf } from "telegraf";
 
 export const TELEGRAM_BOT = () => {
-	// dotenv.config();
-
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
 	// Telegraf
 	const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
 
 	// Working code
-	// BOT.on('message', (ctx) => {
-	// 	ctx.reply("Echo back");
-	// });
+	BOT.on('message', (ctx) => {
+		ctx.reply("Echo back");
+	});
 
 	console.log("Finished running bot");
 
