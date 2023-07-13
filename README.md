@@ -16,11 +16,19 @@ netlify login
 
 # Install dependencies
 yarn install
+
+# Set webbook
+```
+https://api.telegram.org/bot{my_bot_token}/setWebhook?url={netlify_function_url_to_send_updates_to}
+
+eg. netlify_function_url_to_send_updates_to: https://misakanetwork-telegram-api.netlify.app/.netlify/functions/telegramBotGetUpdates
 ```
 
-### Testing
+### Testing locally
 Run the command
 ```
 netlify dev
 ```
 Then go to [http://localhost:8888/.netlify/functions/telegramBotGetUpdates](Browser)
+
+```
