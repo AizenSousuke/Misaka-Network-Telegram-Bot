@@ -17,7 +17,7 @@ export const TELEGRAM_BOT = () => {
 		ctx.reply("Echo back");
 	});
 	
-	BOT.launch();
+	// BOT.launch();
 
 	console.log("Finished running bot");
 
