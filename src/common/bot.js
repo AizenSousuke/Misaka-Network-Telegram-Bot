@@ -83,21 +83,21 @@ export const SETUP_TELEGRAM_BOT = async (BOT) => {
 	// 	}
 	// });
 
-	BOT.on('message', async (ctx) => {
-		ctx.reply("Test");
-		// const chatId = message.chat.id;
-		// const prompt = RemoveCommand(message.text);
+	// BOT.on('message', async (ctx) => {
+	// 	ctx.reply("Test");
+	// 	// const chatId = message.chat.id;
+	// 	// const prompt = RemoveCommand(message.text);
 
-		// const response = await openai.createCompletion(
-		// 	completion.CompletionModel({ prompt: prompt })
-		// );
+	// 	// const response = await openai.createCompletion(
+	// 	// 	completion.CompletionModel({ prompt: prompt })
+	// 	// );
 
-		// if (response) {
-		// 	ctx.reply(chatId, response.data.choices[0].text);
-		// } else {
-		// 	ctx.reply(chatId, "No response from OPENAI.");
-		// }
-	});
+	// 	// if (response) {
+	// 	// 	ctx.reply(chatId, response.data.choices[0].text);
+	// 	// } else {
+	// 	// 	ctx.reply(chatId, "No response from OPENAI.");
+	// 	// }
+	// });
 };
 
 export default TELEGRAM_BOT;
