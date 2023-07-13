@@ -1,6 +1,7 @@
 const { default: TELEGRAM_BOT, SETUP_TELEGRAM_BOT } = require("../common/bot");
 
 const BOT = TELEGRAM_BOT();
+SETUP_TELEGRAM_BOT(BOT);
 
 module.exports.handler = async (event, context) => {
 	try {

@@ -13,11 +13,10 @@ export const TELEGRAM_BOT = () => {
 	// Telegraf
 	const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
 
-	BOT.on('message', (ctx) => {
-		ctx.reply("Echo back");
-	});
-	
-	// BOT.launch();
+	// Working code
+	// BOT.on('message', (ctx) => {
+	// 	ctx.reply("Echo back");
+	// });
 
 	console.log("Finished running bot");
 
@@ -25,25 +24,7 @@ export const TELEGRAM_BOT = () => {
 };
 
 export const SETUP_TELEGRAM_BOT = async (BOT) => {
-	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 	const openai = OPEN_AI();
-
-	// BOT.on("polling_error", console.log);
-
-	// Remove old webhook
-	// BOT.setWebHook(
-	// 	"https://api.telegram.org/bot" +
-	// 		TELEGRAM_BOT_TOKEN +
-	// 		"/setWebhook"
-	// );
-
-	// // Set webhook
-	// BOT.setWebHook(
-	// 	"https://api.telegram.org/bot" +
-	// 		TELEGRAM_BOT_TOKEN +
-	// 		"/setWebhook?url=" +
-	// 		process.env.WEBHOOK_URL
-	// );
 
 	BOT.onText(/\/start/, (message) => {
 		const chatId = message.chat.id;
@@ -101,9 +82,6 @@ export const SETUP_TELEGRAM_BOT = async (BOT) => {
 			BOT.sendMessage(chatId, response.data.choices[0].text);
 		}
 	});
-
-	// await BOT.close();
-	// await BOT.closeWebHook();
 };
 
 export default TELEGRAM_BOT;
