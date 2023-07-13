@@ -9,12 +9,14 @@ export const TELEGRAM_BOT = () => {
 	// dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-	
+
 	// Telegraf
 	const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
 
-	BOT.start((ctx) => ctx.reply("Hello world"));
-	BOT.hears("hi", (ctx) => ctx.reply("Hey there"));
+	BOT.on('message', (ctx) => {
+		ctx.reply("Echo back");
+	});
+	
 	BOT.launch();
 
 	console.log("Finished running bot");

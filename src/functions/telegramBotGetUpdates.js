@@ -1,12 +1,14 @@
 const { default: TELEGRAM_BOT, SETUP_TELEGRAM_BOT } = require("../common/bot");
 
+const BOT = TELEGRAM_BOT();
+
 module.exports.handler = async (event, context) => {
 	try {
-		const BOT = TELEGRAM_BOT();
+		BOT.handleUpdate(JSON.parse(event.body));
 
 		return {
 			statusCode: 200,
-			body: "Success:" + JSON.stringify(event),
+			body: "",
 		};
 	} catch (error) {
 		console.error(error);
