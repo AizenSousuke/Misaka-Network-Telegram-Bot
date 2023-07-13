@@ -9,28 +9,13 @@ export const TELEGRAM_BOT = () => {
 	// dotenv.config();
 
 	const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
-	// 	polling: true,
-	// });
-	// const BOT = new TelegramBot(TELEGRAM_BOT_TOKEN, {
-	// 	webHook: true,
-	// });
-
+	
 	// Telegraf
 	const BOT = new Telegraf(TELEGRAM_BOT_TOKEN);
 
 	BOT.start((ctx) => ctx.reply("Hello world"));
 	BOT.hears("hi", (ctx) => ctx.reply("Hey there"));
 	BOT.launch();
-	// BOT.launch({
-	// 	webhook: {
-	// 		domain: "misakanetwork-telegram-api.netlify.app"
-	// 	}
-	// });
-
-	// // Enable graceful stop
-	// process.once('SIGINT', () => BOT.stop('SIGINT'));
-	// process.once('SIGTERM', () => BOT.stop('SIGTERM'));
 
 	console.log("Finished running bot");
 
